@@ -1,0 +1,317 @@
+  #app {
+    font-family: Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  } /* 모든 vue의 공통 글꼴 */
+  
+  #ProjectName {
+    margin : 0;
+    color : #1F4E79;
+    text-decoration-line: none;
+  } /* 프로젝트 이름(상단부에 위치) */
+
+  .backgroundContainer {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #E5E5E5;
+    box-sizing: border-box;
+  } /* 프로젝트 배경 */
+
+  #battery {
+    width: 20px;
+    height: 20px;
+    color: white;
+    margin-left: auto;
+  } /* 배터리 모양 */
+  
+  .status-bar {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    background-color: #222222;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    box-sizing: border-box;
+    z-index: 999; 
+  } /* 상태 바(상단) */
+
+  .phoneContainer {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* text-align: center; */
+    height: 640px;
+    width: 360px;
+  } /* 모바일 디스플레이 640X360 */
+
+  .centerAlign{
+    text-align: center;
+  }
+
+  .word3 {
+    text-align: left;
+    margin: 50px auto 20px 20px;
+    color: #1F4E79;
+  } /* 중간크기의 제목 */
+
+  .inputBar {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #1F4E79;
+    border-radius: 5px;
+    color: #1F4E79;
+    box-sizing: border-box;
+  } /* 입력 창 */
+
+  .searchBar {
+    width: calc(100% - 160px);
+    padding: 8px;
+    border: 2px solid #1F4E79;
+    border-radius: 5px;
+    color: #1F4E79;
+    box-sizing: border-box;
+  } /* 검색 창 */
+
+  .longCLickBtn{
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    border-radius: 10px;
+  } /* 긴 제출 버튼 */
+
+  #color1{
+    background-color: #2E75B6;
+  }
+
+  #color2{
+    background-color: #1F4E79;
+  }
+
+  .longCLickBtn:hover {
+    background-color: #1F4E79;
+    transition : 0.9s ease
+  } /* 긴 제출 버튼 갖다대기 */
+
+  
+  .logoPoorba{
+    margin-top: 50px;
+    width : max-content;
+  } /* 푸르바 로고 */
+  .withBack .logoPoorba{
+    margin-top: 30px;
+    margin-left: 40px;
+  } /* 푸르바 로고(뒤로가기 포함) */
+  .withBack .PoorbaMove{
+    margin-top: 30px;
+    margin-left: 90px;
+  } /* 푸르바 로고 위치 조정 */
+
+  .withBack{
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .backImg{
+    width: 30px;
+    height: 30px;
+    margin: 10px 10px 0 0;
+    float: right;
+    color: black;
+  } /* 뒤로가기 버튼 */
+
+  .word1{
+    display: inline-block;
+    margin: 15px auto auto 15px;
+  } /* 캡처하면 문구 */
+
+  .subTitleLeft {
+    text-align: left;
+    margin: 10px auto 10px 20px;
+    color: black;
+  } /* 소제목(왼쪽 정렬) */
+  
+  
+  .bottomFirst{
+    margin-top:100px;
+    align-items: flex-end;
+  } /* 첫화면 아래쪽 폼 */
+  
+  
+  /* 인증번호 폼 */
+  .authContainer{
+    display:flex;
+    align-items: center;
+  }    
+  .authContainer h2 {
+    flex-grow:1;
+    margin-right: 10px;
+    color: #1F4E79;
+  }          
+  .authContainer button {
+    background-color: #2EA211;
+    color: white;
+    border-style : none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 30px 20px 0 0;
+  }          
+
+
+  /* 메인 화면 버튼 6개 */
+  .btnBundles{
+    margin-top: 20px;
+    margin-left: 25px;
+  }
+  .mainBtn{
+    margin-left: 30px;
+    width:110px;
+    height:110px;
+    background-color: #1F4E79;
+    position:relative;
+    border-style: none;
+    border-radius: 10px;
+  }
+  .mainIcon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+    color: white;
+  }
+  .mainTxt {
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    white-space: nowrap; /* 줄바꿈 제어 */
+  }
+
+  /* 카메라 화면 */
+  .cameraDisplay {
+    max-width: 100%; /* 이미지가 컨테이너보다 클 경우를 대비 */
+    max-height: 100%;
+  }
+  .cameraContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 480px;
+    width: 360px;
+  }
+
+  /* 캡처된 화면 */
+  .captureDisplay {
+    width: 360px; /* 이미지가 컨테이너보다 클 경우를 대비 */
+    height: 210px;
+  }
+  .captureBtn {
+    width: calc(100% - 20px);
+    padding: 15px;
+    margin: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    border-radius: 15px;
+    font-size: 20px;
+
+  }
+
+  /* 버튼 2개 묶음 */
+  .buttonGroup1 {
+    width: 360px;
+    height: 80px;
+  }
+  .captureBtn2 {
+    width: 120px;
+    height: 60px;
+    margin-left: 40px;
+    border: none;
+    cursor: pointer;
+    background-color: blue;
+    color: white;
+    border-radius: 15px;
+    font-size: 22px;
+  }
+
+  .modalBack{
+    width: 320px;
+    height : 82%;
+    background: rgba(0,0,0,0.75);
+    position : absolute;
+    padding : 20px;
+   }
+   .modalWindow{
+    width : 320px;
+    height : 90%; 
+    margin : auto 0;
+    background: white;
+    border-radius: 8px;
+   }
+   .word2{
+    display: inline-block;
+    margin: 20px auto auto 20px;
+   }
+   .modalGroup{
+    width : 100%;
+    padding-top : 160px;
+   }
+   .modalBtn{
+    width: 120px;
+    height: 100px;
+    margin-left: 26px;
+    border: none;
+    cursor: pointer;
+    background-color: red;
+    color: white;
+    border-radius: 15px;
+    font-size: 22px;    
+   }
+
+   .longBtn1 {
+    width: calc(100% - 20px);
+    padding: 15px;
+    margin: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: #2E75B6;
+    color: white;
+    border-radius: 18px;
+    font-size: 22px;
+  }
+  .shortBtn1 {
+    width: 120px;
+    height: 60px;
+    margin-left: 40px;
+    border: none;
+    cursor: pointer;
+    background-color: red;
+    color: white;
+    border-radius: 15px;
+    font-size: 30px;
+  }
+  .infDiv{
+    width: 340px;
+    height : 240px;
+    background: #D8EBFD;
+    margin-top : 20px;
+    margin-bottom : 20px;
+    padding: 10px;
+   }
+   .pre-wrap {
+    white-space: pre-wrap;
+  }
