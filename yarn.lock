@@ -5708,17 +5708,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@vue/devtools-api@npm:^6.0.0-beta.11, @vue/devtools-api@npm:^6.5.1":
+  version: 6.6.1
+  resolution: "@vue/devtools-api@npm:6.6.1"
+  checksum: cf12b5ebcc7729725087072289410107b55bb82e0b86b8442e4e85516977110a8a3f4e1dec763be8b567a59173703b4e9c0ac1b0489bb2bb81363af7ea258a27
+  languageName: node
+  linkType: hard
+
 "@vue/devtools-api@npm:^6.5.0":
   version: 6.5.1
   resolution: "@vue/devtools-api@npm:6.5.1"
   checksum: 3de9ff5ec78890c84d22c59910e26bf53140413895ba85b0e2a276609c24d9dde007cf468d9f21ef18389eaef75605fe94e79a761beb30d3bbb7af1ef19bbd4e
-  languageName: node
-  linkType: hard
-
-"@vue/devtools-api@npm:^6.5.1":
-  version: 6.6.1
-  resolution: "@vue/devtools-api@npm:6.6.1"
-  checksum: cf12b5ebcc7729725087072289410107b55bb82e0b86b8442e4e85516977110a8a3f4e1dec763be8b567a59173703b4e9c0ac1b0489bb2bb81363af7ea258a27
   languageName: node
   linkType: hard
 
@@ -12641,28 +12641,8 @@ __metadata:
     "@ngtools/webpack": ~16.2.0
     nativescript: ^8.6.5
     rxjs: ~7.8.0
-    typescript: ~5.1.6
+    typescript: latest
     zone.js: ~0.13.0
-  languageName: unknown
-  linkType: soft
-
-"ivon-web@workspace:apps/ivon-web":
-  version: 0.0.0-use.local
-  resolution: "ivon-web@workspace:apps/ivon-web"
-  dependencies:
-    "@types/node": ^18.18.5
-    "@vitejs/plugin-vue": ^4.4.0
-    "@vitejs/plugin-vue-jsx": ^3.0.2
-    "@vueuse/core": ^10.5.0
-    eslint-config-vue: "workspace:^"
-    pinia: ^2.1.7
-    prettier-config-custom: "workspace:^"
-    radix-vue: ^1.1.1
-    tsconfig-custom: "workspace:^"
-    typescript: ^5.3.2
-    vite-config-custom: "workspace:^"
-    vue: ^3.3.8
-    vue-router: ^4.2.5
   languageName: unknown
   linkType: soft
 
@@ -16424,9 +16404,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"purba-web@workspace:apps/purba-web":
+"purbaw1@workspace:apps/purba-web-js":
   version: 0.0.0-use.local
-  resolution: "purba-web@workspace:apps/purba-web"
+  resolution: "purbaw1@workspace:apps/purba-web-js"
   dependencies:
     "@babel/core": ^7.12.16
     "@babel/eslint-parser": ^7.12.16
@@ -16438,6 +16418,27 @@ __metadata:
     eslint-plugin-vue: ^8.0.3
     vue: ^3.2.13
     vue-router: ^4.3.0
+  languageName: unknown
+  linkType: soft
+
+"purbaw2@workspace:apps/purba-web-ts":
+  version: 0.0.0-use.local
+  resolution: "purbaw2@workspace:apps/purba-web-ts"
+  dependencies:
+    "@types/node": ^18.18.5
+    "@vitejs/plugin-vue": ^4.4.0
+    "@vitejs/plugin-vue-jsx": ^3.0.2
+    "@vueuse/core": ^10.5.0
+    eslint-config-vue: "workspace:^"
+    pinia: ^2.1.7
+    prettier-config-custom: "workspace:^"
+    radix-vue: ^1.1.1
+    tsconfig-custom: "workspace:^"
+    typescript: latest
+    vite-config-custom: "workspace:^"
+    vue: ^3.3.8
+    vue-router: ^4.2.5
+    vuex: next
   languageName: unknown
   linkType: soft
 
@@ -17420,7 +17421,7 @@ __metadata:
     rimraf: ^5.0.5
     terser: ^5.24.0
     tslib: ^2.6.2
-    typescript: ^5.2.2
+    typescript: latest
     vite: ^4.5.1
     vitest: ^0.34.6
     vue: ^3.3.8
@@ -19088,13 +19089,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^5.2.2, typescript@npm:^5.3.2":
-  version: 5.3.2
-  resolution: "typescript@npm:5.3.2"
+"typescript@npm:latest":
+  version: 5.4.3
+  resolution: "typescript@npm:5.4.3"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: d92534dda639eb825db013203404c1fabca8ac630564283c9e7dc9e64fd9c9346c2de95ecebdf3e6e8c1c32941bca1cfe0da37877611feb9daf8feeaea58d230
+  checksum: d74d731527e35e64d8d2dcf2f897cf8cfbc3428be0ad7c48434218ba4ae41239f53be7c90714089db1068c05cae22436af2ecba71fd36ecc5e7a9118af060198
   languageName: node
   linkType: hard
 
@@ -19108,16 +19109,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:~5.1.6":
-  version: 5.1.6
-  resolution: "typescript@npm:5.1.6"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: b2f2c35096035fe1f5facd1e38922ccb8558996331405eb00a5111cc948b2e733163cc22fab5db46992aba7dd520fff637f2c1df4996ff0e134e77d3249a7350
-  languageName: node
-  linkType: hard
-
 "typescript@patch:typescript@5.0.3#~builtin<compat/typescript>":
   version: 5.0.3
   resolution: "typescript@patch:typescript@npm%3A5.0.3#~builtin<compat/typescript>::version=5.0.3&hash=b5f058"
@@ -19128,13 +19119,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@^5.2.2#~builtin<compat/typescript>, typescript@patch:typescript@^5.3.2#~builtin<compat/typescript>":
-  version: 5.3.2
-  resolution: "typescript@patch:typescript@npm%3A5.3.2#~builtin<compat/typescript>::version=5.3.2&hash=29ae49"
+"typescript@patch:typescript@latest#~builtin<compat/typescript>":
+  version: 5.4.3
+  resolution: "typescript@patch:typescript@npm%3A5.4.3#~builtin<compat/typescript>::version=5.4.3&hash=29ae49"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: c034461079fbfde3cb584ddee52afccb15b6e32a0ce186d0b2719968786f7ca73e1b07f71fac4163088790b16811c6ccf79680de190664ef66ff0ba9c1fe4a23
+  checksum: 3a62fe90aa79d68c9ce38ea5edb2957e62801c733b99f0e5a2b8b50922761f68f7d9a40d28c544b449866e81185cddb93cba2496d0ff3fa52ef5b1f8bcace38c
   languageName: node
   linkType: hard
 
@@ -19145,16 +19136,6 @@ __metadata:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: d26b6ba97b6d163c55dbdffd9bbb4c211667ebebc743accfeb2c8c0154aace7afd097b51165a72a5bad2cf65a4612259344ff60f8e642362aa1695c760d303ac
-  languageName: node
-  linkType: hard
-
-"typescript@patch:typescript@~5.1.6#~builtin<compat/typescript>":
-  version: 5.1.6
-  resolution: "typescript@patch:typescript@npm%3A5.1.6#~builtin<compat/typescript>::version=5.1.6&hash=5da071"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: f53bfe97f7c8b2b6d23cf572750d4e7d1e0c5fff1c36d859d0ec84556a827b8785077bc27676bf7e71fae538e517c3ecc0f37e7f593be913d884805d931bc8be
   languageName: node
   linkType: hard
 
@@ -19831,7 +19812,7 @@ __metadata:
     prettier-config-custom: "workspace:^"
     radix-vue: ^1.1.1
     tsconfig-custom: "workspace:^"
-    typescript: ^5.3.2
+    typescript: latest
     vite-config-custom: "workspace:^"
     vue: ^3.3.8
     vue-router: ^4.2.5
@@ -19935,6 +19916,17 @@ __metadata:
     typescript:
       optional: true
   checksum: 560c18aa37f3f2351de8245f7844611409e7b7cbaabaae0993bdacd6090bb5ca81d89366e324babfdc7063f2312de5b62b56fe8b4dadc586baef8e0968eb6e14
+  languageName: node
+  linkType: hard
+
+"vuex@npm:next":
+  version: 4.0.2
+  resolution: "vuex@npm:4.0.2"
+  dependencies:
+    "@vue/devtools-api": ^6.0.0-beta.11
+  peerDependencies:
+    vue: ^3.0.2
+  checksum: d7c03f0afcbad045ef58921a4baa9ec23bc12c71dbaf1317f1df94e7d8740ce839b9fac48ec775955ce7a8893dceb7217bc05e45421fc6bacc559ed3541e6052
   languageName: node
   linkType: hard
 
