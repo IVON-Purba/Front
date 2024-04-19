@@ -5,52 +5,43 @@
         <p>{{ currentTime }}</p>
         <img alt="" id="battery" src="../assets/battery.png" />
       </div>
-      <div class="withBack">
-        <img
-          role="button"
-          tabindex="0"
-          alt=""
-          @click="goBack"
-          @keyup="goBack"
-          class="backImg"
-          src="../assets/뒤로가기.png"
-        />
-        <form action="#" method="post">
-          <label for="searchInp">
-            <input
-              type="text"
-              id="searchInp"
-              name="searchInp"
-              class="searchBar"
-              placeholder="검색어를 입력해주세요"
-              required
-            />
-          </label>
-        </form>
-        <img
-          role="button"
-          tabindex="0"
-          alt=""
-          @click="goBack"
-          @keyup="goBack"
-          class="backImg"
-          src="../assets/bell.png"
-        />
+      <!-- 수정된 부분: 상단바 -->
+      <div class="topBar">
+        <!-- 공지사항 제목 -->
+        <p class="pageTitle">공지사항</p>
+      </div>
+      <!-- 수정 종료 -->
+
+      <!-- 검색 바 -->
+      <div class="searchBarContainer">
+        <input type="text" v-model="searchKeyword" placeholder="검색어를 입력해주세요" class="searchBar" />
+        <button @click="search" class="searchButton">검색</button>
       </div>
 
       <!-- 공지사항 게시판 -->
       <div class="noticeBoard">
-        <div class="noticeItem" v-for="(notice, index) in notices" :key="index">
+        <div class="noticeItem" v-for="(notice, index) in visibleNotices" :key="index">
           <p class="noticeTitle">{{ notice.title }}</p>
-          <p class="noticeContent">{{ notice.content }}</p>
         </div>
+      </div>
+
+      <!-- 게시판 네비게이션 -->
+      <div class="boardNavigation">
+        <!-- 이전 페이지로 이동 버튼 -->
+        <button @click="prevPage">&lt;</button>
+        <!-- 페이지 번호 버튼 -->
+        <button v-for="pageNumber in visiblePageNumbers" :key="pageNumber" @click="goToPage(pageNumber)">
+          {{ pageNumber }}
+        </button>
+        <!-- 다음 페이지로 이동 버튼 -->
+        <button @click="nextPage">&gt;</button>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, onMounted, onUnmounted } from "vue";
+import { defineComponent, ref, onMounted, onUnmounted, computed } from "vue";
 import { useRouter } from "vue-router";
 
 export default defineComponent({
@@ -71,21 +62,79 @@ export default defineComponent({
       router.back();
     };
 
-    // 가짜 공지사항 데이터
+    // 가짜 공지사항 데이터 (5개로 줄임)
     const notices = ref([
       {
-        title: "공지사항 제목 1",
-        content: "공지사항 내용 1"
+        title: "[건강정보] 만안구 보건소 독감 접종 안내"
       },
       {
-        title: "공지사항 제목 2",
-        content: "공지사항 내용 2"
+        title: "[공지사항] 만안구 안양 2동 공지사항"
       },
       {
-        title: "공지사항 제목 3",
-        content: "공지사항 내용 3"
+        title: "[공사안내] 만안구 배수로 공사 일정"
+      },
+      {
+        title: "[채용공고] 노인 일자리 안내"
+      },
+      {
+        title: "[행사] 전국 노래자랑 안양편 일정"
       }
     ]);
+
+    // 현재 페이지와 페이지당 항목 수
+    const currentPage = ref(1);
+    const itemsPerPage = 5;
+
+    // 전체 페이지 수와 현재 페이지에 따른 가시적인 공지사항 목록 계산
+    const totalPages = computed(() => Math.ceil(notices.value.length / itemsPerPage));
+    const visibleNotices = computed(() => {
+      const startIndex = (currentPage.value - 1) * itemsPerPage;
+      const endIndex = startIndex + itemsPerPage;
+      return notices.value.slice(startIndex, endIndex);
+    });
+
+    // 페이지 네비게이션을 위한 페이지 번호 계산
+    const visiblePageNumbers = computed(() => {
+      const pageRange = 3; // 현재 페이지를 중심으로 보여질 페이지 수
+      let startPage = Math.max(1, currentPage.value - pageRange);
+      let endPage = Math.min(totalPages.value, currentPage.value + pageRange);
+
+      // 보여질 페이지 수를 유지하기 위해 시작 페이지를 조정
+      if (endPage - startPage < pageRange * 2) {
+        startPage = Math.max(1, endPage - pageRange * 2);
+      }
+
+      return Array.from({ length: endPage - startPage + 1 }, (_, index) => startPage + index);
+    });
+
+    // 검색어와 관련된 상태
+    const searchKeyword = ref("");
+
+    // 검색 기능
+    const search = () => {
+      // 여기에 검색 기능을 구현합니다.
+      // 예를 들어, 검색어에 해당하는 공지사항을 필터링하거나 검색 결과를 다른 방식으로 표시할 수 있습니다.
+      console.log("검색어:", searchKeyword.value);
+    };
+
+    // 이전 페이지로 이동
+    const prevPage = () => {
+      if (currentPage.value > 1) {
+        currentPage.value--;
+      }
+    };
+
+    // 다음 페이지로 이동
+    const nextPage = () => {
+      if (currentPage.value < totalPages.value) {
+        currentPage.value++;
+      }
+    };
+
+    // 특정 페이지로 이동
+    const goToPage = (pageNumber: number) => {
+      currentPage.value = pageNumber;
+    };
 
     onMounted(() => {
       updateTime();
@@ -98,36 +147,100 @@ export default defineComponent({
       }
     });
 
-    return { currentTime, goBack, notices };
+    return { currentTime, goBack, visibleNotices, visiblePageNumbers, prevPage, nextPage, goToPage, searchKeyword, search };
   }
 });
 </script>
 
 <style>
 /* index.css 파일 import */
-@import "../css/index.css";
+@import "../css/index.css"; /* 추가됨 */
 
 /* 공지사항 게시판 스타일 */
+/* 추가됨 */
 .noticeBoard {
-  margin-top: 20px;
+  margin-top: 10px;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
 
 .noticeItem {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   padding: 10px;
   background-color: #f5f5f5;
   border: 1px solid #ddd;
   border-radius: 3px;
+  height: auto; /* 기존의 높이 설정 삭제 */
+  max-height: 100px; /* 최대 높이 설정 */
+  overflow: hidden; /* 넘치는 내용을 숨김 */
 }
 
 .noticeTitle {
   font-weight: bold;
+  text-align: left; /* 공지사항 제목 가운데 정렬 */
+}
+/* 추가됨 */
+
+/* 수정된 부분: 상단바 스타일 */
+.topBar {
+  display: flex;
+  justify-content: center; /* 수평 가운데 정렬 */
+  align-items: center;
+  margin-top: 8px;
 }
 
-.noticeContent {
+.pageTitle {
+  font-size: 22px;
+  font-weight: bold;
   margin-top: 5px;
+  text-align: center;
+}
+/* 수정 종료 */
+
+/* 게시판 네비게이션 스타일 */
+.boardNavigation {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.boardNavigation button {
+  margin: 0 5px;
+  padding: 5px 10px;
+  background-color: #ccc;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.boardNavigation button:hover {
+  background-color: #bbb;
+}
+
+/* 검색 바 스타일 */
+.searchBarContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: -7px;
+}
+
+
+
+.searchBar {
+  padding: 5px;
+  margin-right: 5px;
+}
+
+.searchButton {
+  padding: 5px 10px;
+  background-color: #ccc;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.searchButton:hover {
+  background-color: #bbb;
 }
 </style>
