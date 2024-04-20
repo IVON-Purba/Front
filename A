@@ -8,7 +8,7 @@
       <!-- 수정된 부분: 상단바 -->
       <div class="topBar">
         <!-- 공지사항 제목 -->
-        <p class="pageTitle">공지사항</p>
+        <p class="pageTitle">안양시 안내</p>
       </div>
       <!-- 수정 종료 -->
 
@@ -223,9 +223,8 @@ export default defineComponent({
   display: flex;
   justify-content: center;
   margin-top: -7px;
+  width: 112%; /* 넓이 조정 */
 }
-
-
 
 .searchBar {
   padding: 5px;
