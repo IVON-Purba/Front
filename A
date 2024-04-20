@@ -21,7 +21,8 @@
       <!-- 공지사항 게시판 -->
       <div class="noticeBoard">
         <div class="noticeItem" v-for="(notice, index) in visibleNotices" :key="index">
-          <p class="noticeTitle">{{ notice.title }}</p>
+          <!-- An1.vue로 넘어가는 기능 추가 -->
+          <p class="noticeTitle" @click="goToAn1(notice.title)">{{ notice.title }}</p>
         </div>
       </div>
 
@@ -136,6 +137,13 @@ export default defineComponent({
       currentPage.value = pageNumber;
     };
 
+    // An1.vue로 이동하는 함수
+    const goToAn1 = (title: string) => {
+      if (title === "[건강정보] 만안구 보건소 독감 접종 안내") {
+        router.push({ name: 'An1' });
+      }
+    };
+
     onMounted(() => {
       updateTime();
       timer = setInterval(updateTime, 60000);
@@ -147,7 +155,7 @@ export default defineComponent({
       }
     });
 
-    return { currentTime, goBack, visibleNotices, visiblePageNumbers, prevPage, nextPage, goToPage, searchKeyword, search };
+    return { currentTime, goBack, visibleNotices, visiblePageNumbers, prevPage, nextPage, goToPage, searchKeyword, search, goToAn1 };
   }
 });
 </script>
@@ -179,6 +187,7 @@ export default defineComponent({
 .noticeTitle {
   font-weight: bold;
   text-align: left; /* 공지사항 제목 가운데 정렬 */
+  cursor: pointer; /* 마우스를 올리면 포인터 모양으로 변경 */
 }
 /* 추가됨 */
 
